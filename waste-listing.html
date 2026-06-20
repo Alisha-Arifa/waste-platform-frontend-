@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Waste Listing - W2REP</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="top-title">
+      <div class="logo">♻️</div>
+      <h1>Waste Listings</h1>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a class="active" href="waste-listing.html">Waste Listing</a>
+      <a href="search.html">Search</a>
+      <a href="buyer-dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <section class="hero">
+
+    <div class="waste-card">
+
+      <div class="waste-header">
+        <h2>🌿 Available Waste Items</h2>
+        <p>Browse all seller posted recyclable materials</p>
+      </div>
+
+      <!-- FILTER BAR (future ready) -->
+      <div class="filter-bar">
+        <input type="text" placeholder="Search waste..." />
+        <select>
+          <option>All Types</option>
+          <option>Plastic</option>
+          <option>Paper</option>
+          <option>Metal</option>
+        </select>
+        <button class="btn">Filter</button>
+      </div>
+
+      <!-- TABLE -->
+      <table class="waste-table">
+
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Quantity</th>
+            <th>Location</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody id="wasteTableBody">
+          <!-- BACKEND DATA WILL LOAD HERE -->
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+</div>
+
+<script src="app.js"></script>
+
+
+</body>
+</html>

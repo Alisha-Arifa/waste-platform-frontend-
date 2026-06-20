@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Requests - W2REP</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="top-title">
+      <div class="logo">♻️</div>
+      <h1>My Requests</h1>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="search.html">Search</a>
+      <a href="waste-listing.html">Waste Listing</a>
+      <a class="active" href="my-requests.html">My Requests</a>
+      <a href="buyer-dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <section class="hero">
+
+    <div class="premium-card">
+
+      <!-- CARD HEADER -->
+      <div class="card-header">
+        <div>
+          <h2>📦 Request History</h2>
+          <p>Track all your waste exchange requests in one place</p>
+        </div>
+      </div>
+
+      <!-- TABLE -->
+      <table class="premium-table">
+
+        <thead>
+          <tr>
+            <th>Waste</th>
+            <th>Quantity</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+
+        <tbody id="requestsTableBody">
+          <tr>
+            <td colspan="5" class="empty-state">
+              No requests yet
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

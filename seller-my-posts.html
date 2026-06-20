@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Posts - W2REP</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="top-title">
+      <div class="logo">♻️</div>
+      <h1>My Posted Waste</h1>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="seller-dashboard.html">Dashboard</a>
+      <a href="seller-post-waste.html">Post Waste</a>
+      <a class="active" href="seller-my-posts.html">My Posts</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <section class="hero">
+
+    <div class="premium-card">
+
+      <!-- HEADER -->
+      <div class="card-header">
+        <div>
+          <h2>📋 My Listings</h2>
+          <p>All waste items you have posted</p>
+        </div>
+      </div>
+
+      <!-- TABLE -->
+      <table class="premium-table">
+
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Quantity</th>
+            <th>Location</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+
+        <tbody id="sellerPostsBody">
+          <tr>
+            <td colspan="5" class="empty-state">
+              <div style="padding:20px;">
+                <h3 style="color:#0a8f52;margin-bottom:5px;">No posts yet</h3>
+                <p style="color:#888;font-size:14px;">
+                  You haven’t posted any waste items. Start by adding your first listing.
+                </p>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

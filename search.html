@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search Waste - W2REP</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="top-title">
+      <div class="logo">♻️</div>
+      <h1>Search Waste</h1>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a class="active" href="search.html">Search</a>
+      <a href="waste-listing.html">Waste Listing</a>
+      <a href="buyer-dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <section class="hero">
+
+    <div class="waste-card">
+
+      <!-- TITLE -->
+      <div class="waste-header">
+        <h2>🔍 Find Waste</h2>
+        <p>Search recyclable materials by type and location</p>
+      </div>
+
+      <!-- SEARCH FORM -->
+      <form id="searchForm" class="filter-bar">
+
+        <input 
+          id="searchType"
+          type="text" 
+          placeholder="Type (Plastic, Paper, Metal...)"
+        />
+
+        <input 
+          id="searchLocation"
+          type="text" 
+          placeholder="Location (Dhaka, Khulna...)"
+        />
+
+        <button class="btn" type="submit">Search</button>
+
+      </form>
+
+      <!-- TABLE -->
+      <table class="waste-table">
+
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Quantity</th>
+            <th>Location</th>
+            <th>Seller</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody id="searchTableBody">
+          <tr>
+            <td colspan="6" class="empty-state">
+              Search to see results
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
