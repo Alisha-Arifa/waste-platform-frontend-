@@ -11,9 +11,8 @@ function setCurrentUser(user) {
   localStorage.setItem('currentUser', JSON.stringify(user));
 }
 
-/* =========================
-LOGIN
-========================= */
+
+/* ================= LOGIN ================= */
 function initLoginForm() {
   const form = document.getElementById('loginForm');
   if (!form) return;
@@ -24,40 +23,34 @@ function initLoginForm() {
     const email = document.getElementById('loginEmail').value;
     const password = document.getElementById('loginPassword').value;
 
-    try {
-      const res = await fetch(`${API_BASE_URL}/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      });
+    const res = await fetch(`${API_BASE_URL}/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
 
-      const data = await res.json();
+    const data = await res.json();
 
-      if (!res.ok) {
-        alert(data.message || "Login failed");
-        return;
-      }
+    if (!res.ok) {
+      alert(data.message);
+      return;
+    }
 
-      setCurrentUser(data.user);
+    setCurrentUser(data.user);
 
-      // role redirect
-      if (data.user.role === 'admin') {
-        window.location.href = 'admin-dashboard.html';
-      } else if (data.user.role === 'seller') {
-        window.location.href = 'seller-dashboard.html';
-      } else {
-        window.location.href = 'buyer-dashboard.html';
-      }
-
-    } catch (err) {
-      alert("Server not responding");
+    if (data.user.role === 'admin') {
+      window.location.href = 'admin-dashboard.html';
+    } else if (data.user.role === 'seller') {
+      window.location.href = 'seller-dashboard.html';
+    } else {
+      window.location.href = 'buyer-dashboard.html';
     }
   });
 }
 
-/* =========================
-ADMIN DASHBOARD
-========================= */
+
+
+/* ================= ADMIN DASHBOARD ================= */
 async function loadAdminDashboard() {
   try {
     const [usersRes, wasteRes, reqRes] = await Promise.all([
@@ -74,9 +67,9 @@ async function loadAdminDashboard() {
     document.getElementById('totalWaste').innerText = waste.length || 0;
     document.getElementById('totalRequests').innerText = requests.length || 0;
 
-    const userTable = document.getElementById('usersTable');
-    if (userTable) {
-      userTable.innerHTML = users.map(u => `
+    /* USERS */
+    document.getElementById('usersTable').innerHTML =
+      users.map(u => `
         <tr>
           <td>${u.id}</td>
           <td>${u.full_name}</td>
@@ -84,11 +77,10 @@ async function loadAdminDashboard() {
           <td>${u.role}</td>
         </tr>
       `).join('');
-    }
 
-    const wasteTable = document.getElementById('adminWasteTable');
-    if (wasteTable) {
-      wasteTable.innerHTML = waste.map(w => `
+    /* WASTE */
+    document.getElementById('adminWasteTable').innerHTML =
+      waste.map(w => `
         <tr>
           <td>${w.name}</td>
           <td>${w.type}</td>
@@ -96,10 +88,9 @@ async function loadAdminDashboard() {
           <td>${w.seller_id}</td>
         </tr>
       `).join('');
-    }
 
   } catch (err) {
-    console.log("Dashboard error:", err);
+    console.log(err);
   }
 }
 
